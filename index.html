@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Padelo - Ultimate Padel Experience</title>
+    
+    <!-- PWA Configuration -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#099c37" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Padelo" />
+    
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Find padel courts, join tournaments, connect with players. Your ultimate padel experience with Padelo." />
+    <meta name="keywords" content="padel, tennis, sports, courts, tournaments, booking, players, matches" />
+    <meta name="author" content="Padelo" />
+    
+    <!-- Smooth Performance CSS -->
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      #root {
+        min-height: 100vh;
+        position: relative;
+      }
+      
+      /* Loading animation */
+      .loading {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(135deg, #099c37 0%, #0a8c32 100%);
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+      }
+      
+      /* Smooth transitions */
+      * {
+        transition: all 0.2s ease-in-out;
+      }
+      
+      /* Optimized scrolling */
+      body {
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root">
+      <div class="loading">
+        <div>🎾 Loading Padelo...</div>
+      </div>
+    </div>
+
+    <script type="module" src="/client/App.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('✅ Padelo PWA ready!', registration);
+            })
+            .catch((error) => {
+              console.log('❌ PWA registration failed:', error);
+            });
+        });
+      }
+      
+      // Performance monitoring
+      window.addEventListener('load', () => {
+        console.log('🚀 Padelo loaded in', performance.now().toFixed(2), 'ms');
+      });
+    </script>
+  </body>
+</html>

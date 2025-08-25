@@ -1,0 +1,51 @@
+name: padelo
+description: "Ultimate Padel Tournament and Court Booking App - Find courts, join tournaments, connect with players"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Essential UI
+  cupertino_icons: ^1.0.8
+  
+  # State Management
+  flutter_riverpod: ^2.5.2
+  
+  # Storage
+  shared_preferences: ^2.3.2
+  
+  # Navigation
+  go_router: ^14.6.2
+  
+  # Network
+  http: ^1.2.2
+
+  # Security
+  crypto: ^3.0.3
+
+  # JSON Serialization
+  json_annotation: ^4.9.0
+
+  # Images
+  cached_network_image: ^3.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+  # Code Generation
+  build_runner: ^2.4.9
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+    - assets/icons/
